@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# iPremios (react/front-end) Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objetivo
 
-## Available Scripts
+Desenvolver um front-end React/PWA para listar os itens de uma API REST e exibir detalhes do item selecionado permitindo busca por nome.
 
-In the project directory, you can run:
+## Descrição
 
-### `npm start`
+### Tela inicial
+![tela_incial](./screens/products.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tela detalhe de produto
+![tela_detalhe_produto](./screens/product-detail.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Stack
+- React
+- React Hooks
+- React Router
+- CSS Grid
+- CSS Flexbox
+  - Deve ser responsivo. Usar a criatividade para a exibição no celular, podendo manter o card de produto na vertical ou adaptar na horizontal.
+- Service Worker
+  - App deve funcionar off-line (páginas que foram visitadas).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Escopo da aplicação
+- Carregar a tela inicial com todos os produtos e permitir a busca pelo nome do produto.
+- Mostrar um indicador de carregamento (loading) enquanto a request estiver em andamento.
+- Dividir a lista retornada da API em duas sessões conforme o modelo da tela inicial diferenciando os elementos pela propriedade "type".
+- Ao clicar no botão "VEJA MAIS", navegar para a tela de detalhamento do produto selecionado exibindo os dados enviados por parâmetro de navegação.
+- Caso o produto selecionado possua a propriedade "voltages", mostrar os botões com as voltagens disponíveis.
+- Se o item selecionado possuir a propriedade "disabled" igual a true, mostrar um botão com a frase "PRODUTO INDISPONÍVEL". Senão, mostrar a frase "ADICIONAR AO CARRINHO" no mesmo botão.
+- As imagens e fontes necesárias para o projeto estão localizadas no diretório "/assets". 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Detalhes da API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Endpoint: https://exp-node-store-api.herokuapp.com/getProducts
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Tipo de request: POST
 
-### `npm run eject`
+Body da request para listar todos os produtos:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+{
+    "partnerCode": "NPCPONTOFRIO"
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Exemplo de body da request para filtrar pelo nome do produto:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+{
+    "partnerCode": "NPCPONTOFRIO",
+    "name": "TV"
+}
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Obs.: Opcionalmente, é possível retornar um item específico fazendo o filtro pelo id conforme o exemplo abaixo:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+{
+    "partnerCode": "NPCPONTOFRIO",
+    "id": 2181876
+}
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ao fazer a requisição buscando pelo id é necessário que a propriedade id seja do tipo number e possua obrigatóriamente 7 caracteres. Caso contrário a resposta será uma lista vazia.
 
-### Analyzing the Bundle Size
+### Diferencial
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Usar TypeScript
+- Usar Material UI, StyledComponents, SASS ou LESS
+- Validar a informação inserida no campo de busca para fazer o filtro por id seguindo as especificações da observação acima.
+- Permitir zoom na imagem do produto na tela de detalhes ou expandir ao clicar na imagem.
+- Utilizar um carrossel na tela de detalhes do produto mostrando a mesma imagem repetidas vezes.
+- Utilizar ícones da biblioteca FontAwesome para React.
+- Fazer deploy da aplicação no heroku.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Executar o projeto
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deverá executar com `yarn start` na porta 3000

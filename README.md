@@ -35,7 +35,7 @@ Desenvolver um front-end React/PWA para listar os itens de uma API REST e exibir
 
 ### Detalhes da API
 
-Endpoint: https://exp-node-store-api.herokuapp.com/getProducts
+Endpoint: https://node-store-api-smvy.onrender.com/getProducts
 
 Tipo de request: POST
 

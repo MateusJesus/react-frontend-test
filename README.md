@@ -7,10 +7,10 @@ Desenvolver um front-end React/PWA para listar os itens de uma API REST e exibir
 ## Descrição
 
 ### Tela inicial
-![tela_incial](./screens/products.png)
+![tela_incial](/public/screens/products.png)
 
 ### Tela detalhe de produto
-![tela_detalhe_produto](./screens/product-detail.png)
+![tela_detalhe_produto](/public/screens/product-detail.png)
 
 
 ### Stack

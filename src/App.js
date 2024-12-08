@@ -2,13 +2,8 @@ import styled from "styled-components";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import GlobalStyles from "./components/GlobalStyled";
+import Header from "./components/Menu";
 
-const MainSyled = styled.main`
-    background-color: black;
-    min-height: 100vh;
-    width:100%;
-    color: white;
-`
 
 function App() {
   // const [products, setProducts] = useState([]);
@@ -34,10 +29,10 @@ function App() {
   // }, []);
 
   return (
-    <main>
+    <>
       <GlobalStyles/>
-        <h1>Ola mundo</h1>
-    </main>
+      <Header/>
+    </>
   );
 }
 

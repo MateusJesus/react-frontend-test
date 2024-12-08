@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import GlobalStyles from "./components/GlobalStyled";
 import Header from "./components/Menu";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 
 function App() {
@@ -29,10 +30,14 @@ function App() {
   // }, []);
 
   return (
-    <>
-      <GlobalStyles/>
-      <Header/>
-    </>
+    <BrowserRouter>
+      <GlobalStyles />
+      <Header />
+      <Routes>
+        <Route index element={"ola"} />
+        <Route path="/paia" element={"paia"} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -2,19 +2,24 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from "styled-components"
 import { ButtonBase } from '@mui/material';
+import AppContainer from '../GlobalStyled/AppContainer';
 
-const StyledSearch = styled.header`
-    width: 100%;
+const HeaderStyled = styled.header`
+    padding: 0 1em;
+    display:flex;
+    align-items:center;
+    background-color: #222222;
+    justify-content:center;
 `
 
 const ContentHeader = styled.div`
     position: absolute fixed;
     background-color: #222222;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    gap: 1em;
     height: 4em;
     img {
         height: 2.5em;
@@ -40,7 +45,7 @@ const SearchTextField = styled.div`
     margin-right: -2em;
 `
 
-const StyledSearchIcon = styled.div`
+const SearchIconStyled = styled.div`
     height: 100%;
     left: 1em;
     color: #c6c6c6;
@@ -51,13 +56,13 @@ const StyledSearchIcon = styled.div`
     justify-content: center;
 `
 
-const StyledInputBase = styled.div`
+const InputBaseStyled = styled.div`
     padding-left: 3em;
     width: 100%;
     position: relative;
 `
 
-const StyledButtonBase = styled.div`
+const ButtonBaseStyled = styled.div`
     button{
         color: white;
         font-weight: light;
@@ -74,32 +79,34 @@ const StyledButtonBase = styled.div`
 
 const Header = () => {
     return (
-        <StyledSearch>
-            <ContentHeader>
-                <img
-                    src='/assets/images/app-logo.png'
-                    alt='Logo da empresa Ponto Frio'
-                />
-                <ContainerSearch>
-                    <SearchTextField>
-                        <StyledSearchIcon>
-                            <SearchIcon />
-                        </StyledSearchIcon>
-                        <StyledInputBase>
-                            <InputBase
-                                sx={{ width: "100%" }}
-                                placeholder="Busque seu produto"
-                            />
-                        </StyledInputBase>
-                    </SearchTextField>
-                    <StyledButtonBase>
-                        <ButtonBase>
-                            BUSCAR
-                        </ButtonBase>
-                    </StyledButtonBase>
-                </ContainerSearch>
-            </ContentHeader>
-        </StyledSearch>
+        <HeaderStyled>
+            <AppContainer>
+                <ContentHeader>
+                    <img
+                        src='/assets/images/app-logo.png'
+                        alt='Logo da empresa Ponto Frio'
+                    />
+                    <ContainerSearch>
+                        <SearchTextField>
+                            <SearchIconStyled>
+                                <SearchIcon />
+                            </SearchIconStyled>
+                            <InputBaseStyled>
+                                <InputBase
+                                    sx={{ width: "100%" }}
+                                    placeholder="Busque seu produto"
+                                />
+                            </InputBaseStyled>
+                        </SearchTextField>
+                        <ButtonBaseStyled>
+                            <ButtonBase>
+                                BUSCAR
+                            </ButtonBase>
+                        </ButtonBaseStyled>
+                    </ContainerSearch>
+                </ContentHeader>
+            </AppContainer>
+        </HeaderStyled>
     )
 }
 

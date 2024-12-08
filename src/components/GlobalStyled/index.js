@@ -33,11 +33,22 @@ const GlobalStyles = createGlobalStyle`
     src: local(AkkoPro Regular), local(AkkoProRegular), url(${AkkoProRegular});
   }
 
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --breadcrumb-color: #9FBFBF;
+    --ff-primary: AkkoProRegular;
+    --fs-title: 24px;
+  }
+
   html {
     line-height: 1.15; 
     -webkit-text-size-adjust: 100%; 
-    font-family: AkkoProRegular;
+    font-family: var(--ff-primary);
   }
+
+  
+
   body {
     margin: 0;
     min-height: 100vh;
@@ -46,8 +57,8 @@ const GlobalStyles = createGlobalStyle`
     display: block;
   }
   h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+    font-size: var(--fs-title);
+    margin: 0.67em 0 0.67em 0.67em;
   }
   hr {
     box-sizing: content-box; 

@@ -4,39 +4,49 @@ import { useEffect, useState } from "react";
 import GlobalStyles from "./components/GlobalStyled";
 import Header from "./components/Menu";
 import { BrowserRouter, Route, Routes } from "react-router";
+import AppContainer from "./components/GlobalStyled/AppContainer";
+import Produts from "./components/Produts";
+import Breadcrumb from "./components/Breadcrumb";
+import { useLocation } from "react-router";
 
+const MainStyled = styled.main`
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+`
+
+const MainContent = styled.div`
+    display: inline-block;
+    padding: 0 1em;
+`
 
 function App() {
-  // const [products, setProducts] = useState([]);
-  // const [search, setSearch] = useState([])
-
-  // useEffect(() => {
-  //   axios.post('http://localhost:5000/api/getProducts')
-  //     .then((response) => {
-  //       const produtos = response.data.products;
-  //       const resultado = produtos.filter((product) =>
-  //         product.name.toLowerCase().includes(String(search).toLowerCase())
-  //       );
-  //       setProducts(resultado);
-  //     })
-  //     .catch((error) => console.error('Erro na pesquisa:', error));
-  // }, [search]);
-
-  // useEffect(() => {
-  //   axios.post('http://localhost:5000/api/getProducts')
-  //     .then(response => {
-  //       setProducts(response.data.products);
-  //     })
-  // }, []);
 
   return (
     <BrowserRouter>
       <GlobalStyles />
       <Header />
-      <Routes>
-        <Route index element={"ola"} />
-        <Route path="/paia" element={"paia"} />
-      </Routes>
+      <MainStyled>
+        <AppContainer>
+          <MainContent>
+            <Breadcrumb />
+            <Routes>
+              <Route path="">
+                <Route index element={<Produts />} />
+              </Route>
+              <Route path="produtos/:id/*" element={"paia"} />
+              <Route path="*" element={'<NaoEncontrada />'} />
+            </Routes>
+            {/* <Routes>
+            <Route path="" element={<PaginaPadrao />}>
+              <Route index element={<Inicio />} />
+              <Route path="sobremim" element={<SobreMim />} />
+            </Route>
+            </Routes> */}
+          </MainContent>
+        </AppContainer>
+      </MainStyled>
     </BrowserRouter>
   );
 }

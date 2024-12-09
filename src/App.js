@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import axios from 'axios';
-import { useEffect, useState } from "react";
 import GlobalStyles from "./components/GlobalStyled";
 import Header from "./components/Menu";
 import { BrowserRouter, Route, Routes } from "react-router";
 import AppContainer from "./components/GlobalStyled/AppContainer";
 import Produts from "./components/Produts";
 import Breadcrumb from "./components/Breadcrumb";
-import { useLocation } from "react-router";
 
 const MainStyled = styled.main`
     width:100%;
@@ -17,8 +14,7 @@ const MainStyled = styled.main`
 `
 
 const MainContent = styled.div`
-    display: inline-block;
-    padding: 0 1em;
+    padding: 1.3em;
 `
 
 function App() {

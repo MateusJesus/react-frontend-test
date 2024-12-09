@@ -34,12 +34,24 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
+    --tx-color: #333333;
     --breadcrumb-color: #9FBFBF;
-    --ff-primary: AkkoProRegular;
+    --search-color: #c6c6c6;
+    --heart-off-color: #c6c6c6;
+    --heart-off-color-hover: #e8b2b2;
+    --heart-on-color: #ec7d7d;
+    --bg-header: #222222;
+    --orange: #EC7F39;
+    --orange-gradient: linear-gradient(180deg, rgba(198,108,51,1) 0%, rgba(236,127,57,1) 100%);
+    --orange-hover: linear-gradient(150deg, rgba(198,108,51,1) 0%, rgba(236,127,57,1) 100%);
+    --white: #ffffff;
+    --bg-white: #F8F8F8;
+    --box-shadow: 0px .2em .5em rgba(0, 0, 0, 0.2);
+    --ff-primary: AkkoProLight;
     --fs-title: 24px;
-  }
+    --fs-subtitle: 14px;
+    --fs-subtitle-card: 24px;
+    }
 
   html {
     line-height: 1.15; 
@@ -47,7 +59,11 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--ff-primary);
   }
 
-  
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   body {
     margin: 0;
@@ -56,10 +72,28 @@ const GlobalStyles = createGlobalStyle`
   main {
     display: block;
   }
+
   h1 {
     font-size: var(--fs-title);
     margin: 0.67em 0 0.67em 0.67em;
+    color: var(--tx-color);
   }
+
+  h2 {
+    font-size: var(--fs-subtitle);
+    margin: 0;
+  }
+
+  h3 {
+    font-size: var(--fs-subtitle-card);
+    margin: 0;
+  }
+
+  h4 {
+    font-size: var(--fs-subtitle);
+    margin: 0;
+  }
+
   hr {
     box-sizing: content-box; 
     height: 0; 
